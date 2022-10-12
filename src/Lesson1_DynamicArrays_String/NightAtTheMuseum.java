@@ -1,4 +1,4 @@
-package Lesson1;
+package Lesson1_DynamicArrays_String;
 
 import java.util.Scanner;
 
