@@ -1,48 +1,38 @@
 package Lesson2_AlgorithmComplexity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 public class ConstantRange{
-    private static int solution(List<Integer> list){
-        int maxCanGo = 1;
-        int firstPtr = 0;
-        int secondPtr = 1;
+    public static int findMaxLength(List<Integer> list){
+        int prev = -1;
+        int current = list.get(0);
+        int next;
+        int prevCount = 0;
+        int currentCount = 1;
 
-        HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(list.get(firstPtr), 1);
+        // longest constant range length
+        int longest = 1;
 
-        // Outer loop to track firstPtr
-        for(firstPtr = 0; firstPtr < list.size(); firstPtr++){
-            // Inner loop to move secondPtr to the farthest place
-            while (secondPtr < list.size()){
-                if (map.containsKey(list.get(secondPtr))){
-                    map.put(list.get(secondPtr), map.get(secondPtr)+1);
-                }
-                else{
-                    map.put(list.get(secondPtr), 1);
-                }
-
-                if (map.size() == 3){
-                    map.remove(list.get(secondPtr));
-                    break;
-                }
-
-                secondPtr++;
-            }
-            if(secondPtr - firstPtr > maxCanGo){
-                maxCanGo = secondPtr - firstPtr;
-            }
-            if(map.get(list.get(firstPtr)) == 1){
-                map.remove(list.get(firstPtr));
-            }
-            else{
-                map.put(list.get(firstPtr), map.get(list.get(firstPtr)) - 1);
+        for (int i = 1; i < list.size(); i++) {
+            next = list.get(i);
+            if (next == current){
+                currentCount ++;
+            } else if (next == prev) {
+                prevCount += currentCount;
+                prev = current;
+                current = next;
+                currentCount = 1;
+            } else {
+                longest = Math.max(longest, currentCount + prevCount);
+                prev = current;
+                prevCount = currentCount;
+                current = next;
+                currentCount = 1;
             }
         }
-        return maxCanGo;
+        return longest;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -51,7 +41,7 @@ public class ConstantRange{
         for (int i = 0; i < n; i++) {
             list.add(Integer.parseInt(sc.next()));
         }
-        System.out.println(solution(list));
+        System.out.println(findMaxLength(list));
         sc.close();
     }
 }
