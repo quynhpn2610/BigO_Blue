@@ -8,9 +8,10 @@ import java.util.Scanner;
 
 public class Vitaly_StringComparison {
     public static String compareString (String s, String t){
-        // s is always smaller than t
+        // s is smaller than t lexicographically
         for (int i = s.length()-1; i >= 0; i--) {
             if (s.charAt(i) == 'z'){
+                // if any char of s = z, replace it with a because there is nothing after z.
                 s = s.substring(0, i) + 'a' + s.substring(i+1);
             }
             else {
