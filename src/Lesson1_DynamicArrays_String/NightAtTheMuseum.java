@@ -18,6 +18,7 @@ public class NightAtTheMuseum {
         for (int i = 0; i < sArr.length-1; i++) {
             diff = Math.abs(sArr[i+1] - sArr[i]);
             if (diff > 13){
+                // quay nguoc lai
                 ans += 26 - diff;
             }
             else ans += diff;
