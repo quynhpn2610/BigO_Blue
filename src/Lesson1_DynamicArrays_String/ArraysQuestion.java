@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 public class ArraysQuestion{
     private static boolean checkIfPossible(List<Integer> nums1, List<Integer> nums2, int pickFromList1, int pickFromList2){
+        //compare two sublists: if the first of the 2nd one is larger than the last of the 1st one --> YES
         List<Integer> subList1 = new ArrayList<>();
         for (int i = 0; i < pickFromList1; i++) {
             subList1.add(nums1.get(i));
         }
         List<Integer> subList2 = new ArrayList<>();
-        int startIndex = nums2.size() - pickFromList2;
+        int startIndex = nums2.size() - pickFromList2; // why?
         for (int i = startIndex; i < nums2.size(); i++) {
             subList2.add(nums2.get(i));
         }
