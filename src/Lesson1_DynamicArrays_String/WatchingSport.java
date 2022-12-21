@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class WatchingSport{
 
-    private static int watchingMinutes(int minutes, List<Integer> list) {
+    private static int watchingMinutes(List<Integer> list) {
         int result = 0;
         list.add(0, 0);
-        list.add(91);
+        //list.add(91);
         for (int i = 1; i < list.size(); i++) {
             int a = list.get(i);
             int b = list.get(i-1);
@@ -29,7 +29,7 @@ public class WatchingSport{
         for (int i = 0; i < minutes; i++) {
             list.add(sc.nextInt());
         }
-        System.out.println(watchingMinutes(minutes, list));
+        System.out.println(watchingMinutes(list));
         sc.close();
     }
 }
