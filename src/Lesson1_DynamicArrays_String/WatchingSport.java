@@ -9,7 +9,7 @@ public class WatchingSport{
     private static int watchingMinutes(List<Integer> list) {
         int result = 0;
         list.add(0, 0);
-        //list.add(91);
+        list.add(91); // why?
         for (int i = 1; i < list.size(); i++) {
             int a = list.get(i);
             int b = list.get(i-1);
@@ -18,7 +18,7 @@ public class WatchingSport{
                 return result;
             }
         }
-        // 14 29 44 59 73
+        // 14 29 44 59 73 --> return 88
         return 90;
     }
 
