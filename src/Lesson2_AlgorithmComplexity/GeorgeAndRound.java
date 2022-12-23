@@ -5,16 +5,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GeorgeAndRound {
-    public static int solution(List<Integer> min, List<Integer> prepared){
+    public static int solution(List<Integer> expected, List<Integer> prepared){
         int preparedPtr = 0;
-        int minPtr = 0;
-        while (preparedPtr < prepared.size() && minPtr < min.size()){
-            if (prepared.get(preparedPtr) >= min.get(minPtr)){
-                minPtr ++;
+        int expectedPtr = 0;
+        while (expectedPtr < expected.size() && preparedPtr < prepared.size()){
+            // compare prepared with expected one by one
+            if (prepared.get(preparedPtr) >= expected.get(expectedPtr)){
+                expectedPtr ++; // if prepared is >= expected --> pass expected
             }
             preparedPtr++;
         }
-        return min.size() - minPtr;
+        return expected.size() - expectedPtr; // to get the leftover in expected, which is the needed
     }
 
     public static void main(String[] args) {
@@ -23,18 +24,17 @@ public class GeorgeAndRound {
         int n = Integer.parseInt(sc.next());
         int m = Integer.parseInt(sc.next());
         //2nd line
-        List<Integer> min = new ArrayList<>();
+        List<Integer> expected = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            min.add(Integer.parseInt(sc.next()));
+            expected.add(Integer.parseInt(sc.next()));
         }
         //3rd line
         List<Integer> prepared = new ArrayList<>();
         for (int i = 0; i < m; i++) {
             prepared.add(Integer.parseInt(sc.next()));
         }
-
         //print results
-        System.out.println(solution(min, prepared));
+        System.out.println(solution(expected, prepared));
         sc.close();
     }
 }

@@ -6,38 +6,43 @@ import java.util.Scanner;
 
 public class AliceBob {
     private static int[] solution(List<Integer> list){
+        // if only 1 bar, Alice has it (alice 1 bob 0)
         if(list.size() == 1){
             return new int[]{1, 0};
         }
+        // if no bar, no one has anything
         if(list.size() == 0){
             return new int[]{0, 0};
         }
 
-        int[] result = new int[2];
+        int[] result = new int[2]; // to store aliceCount and bobCount later
         int aliceCount = 0;
         int alicePointer = 0;
-        int aliceTime = list.get(alicePointer);
+        int alice = list.get(alicePointer);
 
-        int bobPointer = list.size()-1;
         int bobCount = 0;
-        int bobTime = list.get(bobPointer);
+        int bobPointer = list.size()-1;
+        int bob = list.get(bobPointer);
 
+        // both pointer moves from outside in
         while(alicePointer <= bobPointer){
-            aliceTime --;
-            bobTime --;
-            if(alicePointer == bobPointer & (aliceTime == 0 && bobTime == 0)){
+            alice --; // gradually decrease the eating time until 0 (means they are done with the piece)
+            bob --;
+
+            // when both start the last piece --> alice has it
+            if(alicePointer == bobPointer & (alice == 0 && bob == 0)){
                 aliceCount ++;
                 break;
             }
-            if(aliceTime == 0){
+            if(alice == 0){
                 alicePointer++;
                 aliceCount++;
-                aliceTime = list.get(alicePointer);
+                alice = list.get(alicePointer);
             }
-            if(bobTime == 0){
+            if(bob == 0){
                 bobPointer--;
                 bobCount++;
-                bobTime = list.get(bobPointer);
+                bob = list.get(bobPointer);
             }
         }
 
@@ -58,7 +63,7 @@ public class AliceBob {
         for (int i : result) {
             s.append(i).append(" ");
         }
-        s = new StringBuilder(s.substring(0, s.length() - 1));
+        s = new StringBuilder(s.substring(0, s.length() - 1)); //to get rid of the " " at the end
         System.out.println(s);
         sc.close();
     }
