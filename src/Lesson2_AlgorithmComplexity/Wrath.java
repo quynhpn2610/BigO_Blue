@@ -11,6 +11,8 @@ public class Wrath {
         int prevPerson = currentPerson - 1;
         List<Integer> isKilled = new ArrayList<>();
 
+        // outer while loops thru each person
+        // inner while checks the outer person's number of kills
         while(currentPerson >= 0){
             while(prevPerson >= 0){
                 int j = prevPerson + 1;

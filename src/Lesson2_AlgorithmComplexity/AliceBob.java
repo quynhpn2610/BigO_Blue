@@ -16,28 +16,28 @@ public class AliceBob {
         int[] result = new int[2];
         int aliceCount = 0;
         int alicePointer = 0;
-        int alice = list.get(alicePointer);
+        int aliceTime = list.get(alicePointer);
 
         int bobPointer = list.size()-1;
-        int bob = list.get(bobPointer);
         int bobCount = 0;
+        int bobTime = list.get(bobPointer);
 
         while(alicePointer <= bobPointer){
-            alice --;
-            bob --;
-            if(alicePointer == bobPointer & (alice == 0 && bob == 0)){
+            aliceTime --;
+            bobTime --;
+            if(alicePointer == bobPointer & (aliceTime == 0 && bobTime == 0)){
                 aliceCount ++;
                 break;
             }
-            if(alice == 0){
+            if(aliceTime == 0){
                 alicePointer++;
                 aliceCount++;
-                alice = list.get(alicePointer);
+                aliceTime = list.get(alicePointer);
             }
-            if(bob == 0){
+            if(bobTime == 0){
                 bobPointer--;
                 bobCount++;
-                bob = list.get(bobPointer);
+                bobTime = list.get(bobPointer);
             }
         }
 
