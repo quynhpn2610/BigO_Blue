@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Wrath {
     public static int solution(List<Integer> list){
+        // start from the end because one kills the one before them
         int currentPerson = list.size()-1;
         int prevPerson = currentPerson - 1;
         List<Integer> isKilled = new ArrayList<>();

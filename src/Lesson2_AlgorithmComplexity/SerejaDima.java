@@ -2,7 +2,7 @@ package Lesson2_AlgorithmComplexity;
 
 import java.util.Scanner;
 
-public class CardGame {
+public class SerejaDima {
     private static int[] calcPoint(int[] cards){
         int[] points = new int[2];
         int player1Point = 0;
