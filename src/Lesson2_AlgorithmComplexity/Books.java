@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Books {
     private static int findMaxBooks(List<Integer> timeList, int T){
+        // this func takes in 2 param: list of time for each book, T is total free time
         int sum = 0;
         int l = 0;
         // max number of books he can read

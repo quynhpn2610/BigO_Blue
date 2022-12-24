@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class SerejaDima {
     private static int[] calcPoint(int[] cards){
-        int[] points = new int[2];
-        int player1Point = 0;
-        int player2Point = 0;
+        int[] points = new int[2]; // store points of 2 players
+        int player1Point = 0; // Sereja
+        int player2Point = 0; // Dima
         int left = 0;
         int right = cards.length-1;
 
