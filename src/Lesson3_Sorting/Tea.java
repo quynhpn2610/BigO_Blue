@@ -12,7 +12,7 @@ public class Tea {
         cupsForGirls = cups.subList(0, n);
         cupsForBoys = cups.subList(n, cups.size());
 
-        float x = 0;
+        float x = 0; // tổng lượng nước tối đa tính bằng ml
         int minCupGirls = cupsForGirls.get(0);
         int minCupBoys = cupsForBoys.get(0);
         x = minCupBoys < 2 * minCupGirls ? (float) minCupBoys/2 : minCupGirls;
