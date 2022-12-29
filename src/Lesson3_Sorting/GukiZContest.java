@@ -4,7 +4,7 @@ import java.util.*;
 
 public class GukiZContest {
     private static String solution(List<Integer> list){
-        // A map to keep track of index of the original rating list
+        // A map to keep track of indexes of the original rating list
         // Key = element, value = list of its indexes
         Map<Integer, List<Integer>> elementIndex = new HashMap<>();
         for (int i = 0; i < list.size(); i++) {
